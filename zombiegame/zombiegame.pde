@@ -3,6 +3,7 @@ PVector[] zombie;
 PVector[] zombiemovement;
 int z;
 int d;
+float r, g;
 void setup() {
   size(800, 700);
   x = width/2;
@@ -11,6 +12,12 @@ void setup() {
   z = width/2;
   zombie = new PVector[50];
   zombiemovement = new PVector[50];
+  for (int In = 0; In < zombie.length; In++) {
+  float r = random(0, width);
+  float g = random(0, 50); 
+  zombie[In] = new PVector(z, y);
+  zombiemovement[In] = new PVector(0, 0);
+  }
 }
  
 void draw() {
@@ -29,10 +36,18 @@ void draw() {
  rect(500, 650, width, height);
  
  //zombie
+ for (int i = 0; i < zombie.length; i++)  {
+   zombie[i].add(0, 4);
+   zombie[i].add(zombiemovement[i]); 
+   
+   if (zombie[i].y > width) {
+     zombie[i].y = - 750;
+     zombie[i].y = (int) random(100, 0);
+  }
  fill(#3BF516);
- ellipse(200, 300, 50, 50);
- 
- 
+ ellipse(zombie[i].x, zombie[i].y, 50, 50);
+
+}
 if (keyPressed) {
   if (key == CODED) {
     if (keyCode == UP) y--;
@@ -43,18 +58,4 @@ if (keyPressed) {
     }
   }
 }
- 
-if (keyPressed) {
-  if (key == CODED) {
-    if (keyCode == UP) y--;
-    if (keyCode == RIGHT) x++;
-    if (keyCode == DOWN) y++;
-    if (keyCode == LEFT) x--; 
-  }
-  if(key == RIGHT)  {
-    translate(width/2, height/2);
-    rotate(PI/3.0);
-    rect(x, y, 52, 52);
-    }
-  }
-}
+    
