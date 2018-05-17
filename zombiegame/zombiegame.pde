@@ -1,22 +1,26 @@
-int x, y;
+int x, y, z, d, n, u, p;
 PVector[] zombie;
 PVector[] zombiemovement;
-int z;
-int d;
+PVector[] player;
 float r, g;
+boolean shoot;
 void setup() {
-  size(800, 700);
+  size(800, 800);
   x = width/2;
   y = height/2;
   d = height/2;
   z = width/2;
+  n = 10;
+  u = 50;
+  p = 4;
   zombie = new PVector[50];
   zombiemovement = new PVector[50];
   for (int In = 0; In < zombie.length; In++) {
-  float r = random(0, width);
-  float g = random(0, 50); 
-  zombie[In] = new PVector(z, y);
+  float x = random(0, width);
+  float y = random(0, 100); 
+  zombie[In] = new PVector(x, y);
   zombiemovement[In] = new PVector(0, 0);
+  shoot = false;
   }
 }
  
@@ -27,35 +31,46 @@ void draw() {
   fill(0);
   rect(x,y, 10, 50);
   fill(#308B42);
-  ellipse(x, y, 50, 50);
-// boundaries you can't cross 
- fill(#8E0808);
- rect(0, 0, width, height - 650);
- rect(0, 0, width - 750, height);
- rect(0, 650, width, height);
- rect(500, 650, width, height);
- 
+  ellipse(x, y, 50, 50); 
  //zombie
  for (int i = 0; i < zombie.length; i++)  {
-   zombie[i].add(0, 4);
+   zombie[i].add(0, 2);
    zombie[i].add(zombiemovement[i]); 
    
-   if (zombie[i].y > width) {
-     zombie[i].y = - 750;
-     zombie[i].y = (int) random(100, 0);
+   if (zombie[i].y > 800) {
+     zombie[i].y = - 400;
+     zombie[i].y = (int) random(0, 0);
   }
  fill(#3BF516);
  ellipse(zombie[i].x, zombie[i].y, 50, 50);
-
+ 
+ // boundaries you can't cross 
+ fill(#8E0808);
+ rect(0, 0, width, height - 750);
+ rect(width - 820, 0, 80, height);
+ rect(0, 670, width, 50);
+ rect(750, 0, 80, height);
 }
 if (keyPressed) {
   if (key == CODED) {
-    if (keyCode == UP) y--;
-    if (keyCode == RIGHT) x++;
-    if (keyCode == DOWN) y++;
-    if (keyCode == LEFT) x--; 
-    if (keyCode == UP + RIGHT);
+    //move up
+    if (keyCode == UP) y-=3;
+    //move right
+    if (keyCode == RIGHT) x+=3;
+    //move down
+    if (keyCode == DOWN) y+=3;
+    //move left
+    if (keyCode == LEFT) x-=3; 
+    }
+    else if (keyCode == UP + RIGHT){
+    x+=2;
+    y-=2;
+    }
+  } 
+  if (keyPressed) {
+    if(key == 'a') {
+      rect(width/2, p, 10, 50);
+      p += 10;
     }
   }
 }
-    
