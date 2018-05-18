@@ -1,4 +1,4 @@
-int x, y, z, d, n, u, p;
+int x, y, y2, z, d, h2, n, u, p;
 PVector[] zombie;
 PVector[] zombiemovement;
 PVector[] player;
@@ -13,11 +13,12 @@ void setup() {
   n = 10;
   u = 50;
   p = 4;
-  zombie = new PVector[50];
-  zombiemovement = new PVector[50];
+  y2 = height/2;
+  zombie = new PVector[10];
+  zombiemovement = new PVector[10];
   for (int In = 0; In < zombie.length; In++) {
   float x = random(0, width);
-  float y = random(0, 100); 
+  float y = random(0, 150); 
   zombie[In] = new PVector(x, y);
   zombiemovement[In] = new PVector(0, 0);
   shoot = false;
@@ -34,7 +35,7 @@ void draw() {
   ellipse(x, y, 50, 50); 
  //zombie
  for (int i = 0; i < zombie.length; i++)  {
-   zombie[i].add(0, 2);
+   zombie[i].add(0, 5);
    zombie[i].add(zombiemovement[i]); 
    
    if (zombie[i].y > 800) {
@@ -69,8 +70,11 @@ if (keyPressed) {
   } 
   if (keyPressed) {
     if(key == 'a') {
-      rect(width/2, p, 10, 50);
-      p += 10;
+      rect(x, y2, 10, 10);
+      shoot = true;
+      y2 += 2;
+      h2 = y2 + 2;
     }
   }
 }
+
