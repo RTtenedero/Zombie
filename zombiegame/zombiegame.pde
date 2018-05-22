@@ -53,28 +53,18 @@ void draw() {
  rect(750, 0, 80, height);
 }
 if (keyPressed) {
-  if (key == CODED) {
+    if (key == CODED); {
     //move up
-    if (keyCode == UP) y-=3;
-    //move right
-    if (keyCode == RIGHT) x+=3;
-    //move down
-    if (keyCode == DOWN) y+=3;
+    if (key == 'w') y-= 3;
     //move left
-    if (keyCode == LEFT) x-=3; 
+    if (key == 'a') x-= 3;
+    //move right
+    if (key == 'd') x+= 3;
+    //move down
+    if (key == 's') y+= 3;
     }
+}
     else if (keyCode == UP + RIGHT){
-    x+=2;
-    y-=2;
+    
     }
   } 
-  if (keyPressed) {
-    if(key == 'a') {
-      rect(x, y2, 10, 10);
-      shoot = true;
-      y2 += 2;
-      h2 = y2 + 2;
-    }
-  }
-}
-
