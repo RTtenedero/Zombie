@@ -4,6 +4,7 @@ PVector[] zombiemovement;
 PVector[] player;
 float r, g;
 boolean shoot;
+
 void setup() {
   size(800, 800);
   x = width/2;
@@ -47,9 +48,13 @@ void draw() {
  
  // boundaries you can't cross 
  fill(#8E0808);
+ //upper barrier
  rect(0, 0, width, height - 750);
+ //left barrier
  rect(width - 820, 0, 80, height);
+ //bottom barrier
  rect(0, 670, width, 50);
+ //right barrier
  rect(750, 0, 80, height);
 }
 if (keyPressed) {
@@ -63,8 +68,9 @@ if (keyPressed) {
     //move down
     if (key == 's') y+= 3;
     }
+  }
 }
-    else if (keyCode == UP + RIGHT){
-    
-    }
-  } 
+void Contact()  {
+ listenforcollisio
+
+} 
