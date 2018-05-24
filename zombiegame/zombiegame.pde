@@ -1,4 +1,4 @@
-int x, y, y2, z, d, h2, n, u, p;
+int x, y, y2, z, d, h2, n, u, p, b1, b2;
 PVector[] zombie;
 PVector[] zombiemovement;
 PVector[] player;
@@ -15,6 +15,8 @@ void setup() {
   u = 50;
   p = 4;
   y2 = height/2;
+  b1 = 0;
+  b2 = 0;
   zombie = new PVector[10];
   zombiemovement = new PVector[10];
   for (int In = 0; In < zombie.length; In++) {
@@ -49,13 +51,13 @@ void draw() {
  // boundaries you can't cross 
  fill(#8E0808);
  //upper barrier
- rect(0, 0, width, height - 750);
+ rect(b1, b2, width, height - 750);
  //left barrier
- rect(width - 820, 0, 80, height);
+ rect(width - 820, b2, 80, height);
  //bottom barrier
- rect(0, 670, width, 50);
+ rect(b1, 670, width, 50);
  //right barrier
- rect(750, 0, 80, height);
+ rect(750, b2, 80, height);
 }
 if (keyPressed) {
     if (key == CODED); {
