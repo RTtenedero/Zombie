@@ -57,14 +57,13 @@ void draw() {
 if (keyPressed) {
     if (key == CODED); {
     //move up
-    if (key == 'w') y-= 3;
+    if (keyCode == UP) y-= 3;
     //move left
-    if (key == 'a') x-= 3;
+    if (keyCode == LEFT) x-= 3;
     //move right
-    if (key == 'd') x+= 3;
+    if (keyCode == RIGHT) x+= 3;
     //move down
-    if (key == 's') y+= 3;
+    if (keyCode == DOWN) y+= 3;
     }
   }
 }
-
