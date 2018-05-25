@@ -1,4 +1,4 @@
-int x, y, y2, z, d, h2, n, u, p, b1, b2;
+int x, y, y2, b1, b2;
 PVector[] zombie;
 PVector[] zombiemovement;
 PVector[] player;
@@ -9,11 +9,6 @@ void setup() {
   size(800, 800);
   x = width/2;
   y = height/2;
-  d = height/2;
-  z = width/2;
-  n = 10;
-  u = 50;
-  p = 4;
   y2 = height/2;
   b1 = 0;
   b2 = 0;
@@ -72,6 +67,4 @@ if (keyPressed) {
     }
   }
 }
-void Contact()  {
 
-} 
