@@ -1,4 +1,4 @@
-int x, y, y2, b1, b2;
+int x, y, x2, y2, b1, b2;
 PVector[] zombie;
 PVector[] zombiemovement;
 PVector[] player;
@@ -9,6 +9,7 @@ void setup() {
   size(800, 800);
   x = width/2;
   y = height/2;
+  x2 = width/2;
   y2 = height/2;
   b1 = 0;
   b2 = 0;
@@ -28,7 +29,7 @@ void draw() {
   //soldier character
   noStroke();
   fill(0);
-  rect(x,y, 10, 50);
+  rect(x, y, 10, 50);
   fill(#308B42);
   ellipse(x, y, 50, 50); 
  //zombie
@@ -58,6 +59,9 @@ if (keyPressed) {
     if (key == CODED); {
     //move up
     if (keyCode == UP) y-= 3;
+    translate(width/2, height/2);
+    rotate(PI/3.0);
+    rect(x, -y, 10, 50);
     //move left
     if (keyCode == LEFT) x-= 3;
     //move right
@@ -67,3 +71,4 @@ if (keyPressed) {
     }
   }
 }
+
