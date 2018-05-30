@@ -1,4 +1,4 @@
-Zombie Z1;
+Zombie Z1, Z2, Z3;
 float x3, y3;
 int x, y, x2, y2, b1, b2;
 PVector[] player;
@@ -15,6 +15,8 @@ void setup() {
   b1 = 0;
   b2 = 0;
   Z1 = new Zombie(color(59, 245, 22),0,400,1);
+  Z2 = new Zombie(color(255,0,0),0, 600, 3);
+  Z3 = new Zombie(color(59, 245, 22),400,0,1);
 }
 
 void draw() {
@@ -32,7 +34,10 @@ void draw() {
   //zombie
   Z1.display();
   Z1.speed();
-  
+  Z2.display();
+  Z2.speed();
+  Z3.display();
+  Z3.speed2();
   // boundaries you can't cross 
   fill(#8E0808);
   //upper barrier
@@ -79,6 +84,12 @@ void speed() {
   xpos =  xpos + zspeed;
   if (xpos > width) {
     xpos = 0;
+    }
+  }
+void speed2() {
+  ypos = ypos + zspeed;
+  if (ypos > height) {
+    ypos = 0;
     }
   }
 }
