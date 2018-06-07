@@ -102,3 +102,6 @@ void speed2() {
 class boundary{
 
 }
+void keyPressed() {
+
+}
