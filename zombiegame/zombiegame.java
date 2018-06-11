@@ -5,6 +5,7 @@ int y = 400;
 int b1 = 0;
 int b2 = 0;
 int x2, y2, a;
+custom shap p;
 PVector[] player;
 PVector movement;
 PVector speed;
@@ -26,7 +27,7 @@ void draw() {
   //soldier character
   noStroke();
   fill(0);
-  rect(x, y, 10, 50);
+  p = rect(x, y, 10, 50);
   fill(48, 139, 66, a);
   ellipse(x, y, 50, 50); 
   //zombie
@@ -75,7 +76,7 @@ float zspeed;
   zspeed = tempZspeed;
   
   if(xpos >= x); {
-    Z1.remove();
+
   }
 }
 void display() {
@@ -98,9 +99,6 @@ void speed2() {
     ypos = 0;
     }
   }
-}
-class boundary{
-
 }
 void keyPressed() {
 
