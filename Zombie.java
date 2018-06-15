@@ -24,7 +24,7 @@ void setup() {
 }
 void draw() {
   move(); 
-
+  
   background(232, 239, 37);
   //soldier character
   noStroke();
@@ -63,22 +63,22 @@ void draw() {
 }
 // bullet
 class bullets {
-  color speed;
   float bulletx;
   float bullety;
   float bulletspeed;
-  bullets(color speed, float bulletx, float bullety, float bulletspeed) {
-    speed = 0;
-    bulletx = playermovement.x;
-    bullety = playermovement.y;
-    bulletspeed = 3;
+  bullets(float tx, float ty)
+  {
+  bulletx = tx;
+  bullety = ty;
   }
 
-void display() {
+void display2() {
   noStroke();
-  fill(speed);
-  rect(playermovement.x,playermovement.y,30, 30);
+  point(x,y);
   }
+void mousePressed() {
+  bullets temp = new Bullets(playermovement.x, playermovement.y);
+  Bullets.add(temp);
 }
 void move() {
   // up,down,left, and right keys
